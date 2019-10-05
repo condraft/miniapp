@@ -64,3 +64,6 @@ gem 'haml-rails'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'kaminari'
+gem 'jquery-rails'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
