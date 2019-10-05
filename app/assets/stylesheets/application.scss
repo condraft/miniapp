@@ -16,4 +16,9 @@
  */
  
 // materializecssをインポートする
+@import "materialize/components/color-variables";
+$primary-color: color("blue-grey", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import "set";
 @import "materialize";
+@import "post";
