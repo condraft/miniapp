@@ -10,12 +10,26 @@ class PostsController < ApplicationController
   end
   
   def create
-    Post.create(image: post_params[:image], text: post_params[:text], user)
+    Post.create(image: post_params[:image], text: post_params[:text], user_id: current_user.id)
+    redirect_to "/"
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy if post.user_id == current_user.id
+    redirect_to "/"
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    if post.user_id == current_user.id
+      post.update(post_params)
+      redirect_to "/"
+    end
   end
 
   private
