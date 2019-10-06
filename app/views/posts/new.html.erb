@@ -1,12 +1,12 @@
 <div class="contents row">
   <div class="container">
-    <%= form_tag('/posts', method: :post) do %>
+    <%= form_for(@post) do |f|%>
       <h3>
         投稿する
       </h3>
-      <input placeholder="Image Url" type="text" name="image">
-      <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>
-      <input type="submit" value="SENT">
+      <%= f.text_field :image, placeholder: 'Image Url'%>
+      <%= f.text_area :text, placeholder: 'text', style: 'cols: 30;rows: 10'%>
+      <%= f.submit "SENT"%>
     <% end %>
   </div>
 </div>

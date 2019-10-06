@@ -7,10 +7,11 @@ class PostsController < ApplicationController
   end
   
   def new
+    @post = Post.new
   end
   
   def create
-    Post.create(image: post_params[:image], text: post_params[:text], user_id: current_user.id)
+    Post.create(post_params)
     redirect_to "/"
   end
 
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.permit(:image, :text)
+    params.require(:post).permit(:text, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
