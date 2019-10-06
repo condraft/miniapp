@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>Miniapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class="grey darken-1">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">みにぶろぐ</a>
+        <% if user_signed_in? %>
+          <ul class="right hide-on-med-and-down">
+            <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><a href="/posts/new"><i class="material-icons right">create</i>投稿する</a></li>
+          </ul>
+        <% else %>
+          <ul class="right hide-on-med-and-down">
+            <li>
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+            <li>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
