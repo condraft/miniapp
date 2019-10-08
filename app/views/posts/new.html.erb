@@ -4,7 +4,7 @@
       <h3>
         投稿する
       </h3>
-      <%= f.text_field :image, placeholder: 'Image Url'%>
+      <%= f.file_field :image%>
       <%= f.text_area :text, placeholder: 'text', style: 'cols: 30;rows: 10'%>
       <%= f.submit "SENT"%>
     <% end %>
