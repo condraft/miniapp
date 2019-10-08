@@ -5,6 +5,20 @@ body{
   background-color: floralwhite;
 }
 
+
+
+.contents{
+  display: flex
+}
+
+.contents-row{
+  float: left;
+}
+
+.contents-right{
+  margin: 20px 70px 5px 0;
+}
+
 .nav-wrapper{
   a{
     padding: 0 20px;
@@ -16,7 +30,8 @@ body{
 }
 
 .row{
-  margin: 10px 0 0 300px;
-  // align-items: center;
-  
+  margin: 20px 0 0 20px;
+  .col.m7{
+    width: 92%;
+  }
 }
